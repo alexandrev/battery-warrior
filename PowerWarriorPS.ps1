@@ -37,7 +37,7 @@ Param(
 [string]$computer
 )
 $batteryStatus = (Get-WmiObject -Class BatteryStatus -Namespace root\wmi -ComputerName $computer)
-[BOOL]$batteryStatus.PowerOnLine -or -not $batteryStatus.PowerOnLine -and -not $batteryStatus.Discharging
+[BOOL]$batteryStatus.PowerOnLine -or (-not $batteryStatus.PowerOnLine -and -not $batteryStatus.Discharging)
 } 
 
 
